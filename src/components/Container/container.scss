@@ -1,0 +1,13 @@
+@import '../../styles/index.scss';
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-auto-rows: 340px;
+  gap: 50px;
+  width: 100%;
+  min-height: 100vh;
+  background: $dark;
+  border-radius: 25px;
+  padding: 50px;
+}

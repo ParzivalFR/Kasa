@@ -1,0 +1,22 @@
+@import "../../styles/index.scss";
+
+footer {
+  width: 100%;
+  padding: 60px 0 25px 0;
+  background-color: $black;
+
+  & .footer_content {
+    @include center_column_center;
+    color: $white;
+    gap: 25px;
+    width: 100%;
+
+    & img {
+      height: 40px;
+    }
+
+    & p {
+      font-size: 16px;
+    }
+  }
+}

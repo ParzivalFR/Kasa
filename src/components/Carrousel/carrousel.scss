@@ -1,0 +1,64 @@
+@import "../../styles/index.scss";
+
+.slider {
+  width: 100%;
+  height: 415px;
+  position: relative;
+  z-index: 200;
+  border-radius: 25px;
+  overflow: hidden;
+
+  & .slider__nav__btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    opacity: calc(1 - 0.2);
+    transition: all 0.3s ease;
+    cursor: pointer;
+
+
+    &.slider__nav__next {
+      right: 20px;
+    }
+
+    &.slider__nav__prev {
+      left: 20px;
+    }
+
+    & span {
+      color: $white;
+      font-size: 60px;
+      transition: all 0.9s ease;
+
+      &:hover {
+        color: $red;
+      }
+    }
+
+    &:hover {
+      opacity: 1;
+      transform: translateY(-50%) scale(1.1);
+    }
+  }
+
+  & .wrapper {
+    display: flex;
+    width: 100%;
+    height: 100%;
+
+    & .wrapper__item {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      overflow: hidden;
+
+      & img {
+        min-width: 100%;
+        height: 100%;
+        // object-fit: cover;
+      }
+    }
+  }
+}

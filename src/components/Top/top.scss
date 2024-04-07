@@ -1,0 +1,28 @@
+@import "../../styles/index.scss";
+
+.scroll-to-top {
+  margin: 0;
+  padding: 0;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: $white;
+  border-radius: 50%;
+  border: none;
+  width: 40px;
+  height: 40px;
+  font-size: 20px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba($black, 0.3);
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: $black;
+    color: $white;
+    box-shadow: 0 0 10px rgba($white, 0.3);
+  }
+}
