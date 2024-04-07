@@ -10,7 +10,7 @@ const ScrollToTopButton = () => {
 
   return (
     <button className="scroll-to-top" onClick={scrollToTop}>
-      &#129145;
+      <i className="fa-solid fa-arrow-up"></i>
     </button>
   );
 };
