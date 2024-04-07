@@ -7,6 +7,16 @@
   z-index: 200;
   border-radius: 25px;
   overflow: hidden;
+  transition: height 0.8s ease;
+
+
+  @media (max-width: 1280px) {
+    height: 300px;
+  }
+
+  @media (max-width: 768px) {
+    height: 255px;
+  }
 
   & .slider__nav__btn {
     position: absolute;
@@ -31,6 +41,14 @@
       color: $white;
       font-size: 60px;
       transition: all 0.9s ease;
+
+      @media (max-width: 1280px) {
+        font-size: 50px;
+      }
+
+      @media (max-width: 768px) {
+        font-size: 40px;
+      }
 
       &:hover {
         color: $red;

@@ -10,4 +10,8 @@
   background: $dark;
   border-radius: 25px;
   padding: 50px;
+
+  @media (max-width: 1280px) {
+    grid-template-columns: 1fr 1fr;
+  }
 }
