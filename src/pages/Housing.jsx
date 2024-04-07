@@ -2,9 +2,9 @@ import { useParams } from "react-router-dom";
 import Carrousel from "../components/Carrousel/Carrousel";
 import Footer from "../components/Footer/Footer";
 import Header from "../components/Header/Header";
-import Loader from "../components/Loader/Loader";
 import ScrollToTopButton from "../components/Top/Top";
 import { useFetch } from "../utils/useFetch";
+import NotFound from "./NotFound";
 
 const Housing = () => {
   const { fetchedData } = useFetch(`/data.json`);
@@ -63,7 +63,7 @@ const Housing = () => {
                 pictures={currentHousing.pictures}
               />
             ) : (
-              <Loader />
+              <NotFound />
             )}
           </div>
         </div>

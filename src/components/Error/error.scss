@@ -1,0 +1,59 @@
+@import "../../styles/index.scss";
+
+.error_container {
+  @include center_space_between;
+  flex-direction: column;
+  width: 100%;
+  gap: 140px;
+
+  @media (max-width: 1280px) {
+    gap: 130px;
+  }
+
+  @media (max-width: 768px) {
+    margin-top: 60px;
+    gap: 110px;
+  }
+
+  .error_title {
+    font-size: 14rem;
+    font-weight: bold;
+    color: $red;
+
+    @media (max-width: 1280px) {
+      font-size: 10rem;
+    }
+
+    @media (max-width: 768px) {
+      font-size: 6rem;
+    }
+  }
+
+  .error_text {
+    font-size: 2.2rem;
+    color: $red;
+
+    @media (max-width: 1280px) {
+      text-align: center;
+      font-size: 1.8rem;
+    }
+
+    @media (max-width: 768px) {
+      font-size: 1.2rem;
+    }
+  }
+
+  .error_link {
+    font-size: 1.2rem;
+    color: $black;
+    text-decoration: underline;
+
+    @media (max-width: 1280px) {
+      font-size: 1rem;
+    }
+
+    @media (max-width: 768px) {
+      font-size: 0.8rem;
+    }
+  }
+}

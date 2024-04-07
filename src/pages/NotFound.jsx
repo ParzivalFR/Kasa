@@ -1,8 +1,17 @@
+import Header from "../components/Header/Header";
+import Error from "../components/Error/Error";
+import Footer from "../components/Footer/Footer";
+
+/* eslint-disable react/no-unescaped-entities */
 const NotFound = () => {
   return (
-    <div>
-      <h1>404 Not Found</h1>
-    </div>
+    <>
+      <Header />
+      <main>
+        <Error />
+      </main>
+      <Footer />
+    </>
   );
 };
 
