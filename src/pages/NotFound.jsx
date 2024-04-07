@@ -1,9 +1,11 @@
-import Header from "../components/Header/Header";
+import { useRouteError } from "react-router-dom";
 import Error from "../components/Error/Error";
 import Footer from "../components/Footer/Footer";
+import Header from "../components/Header/Header";
 
-/* eslint-disable react/no-unescaped-entities */
 const NotFound = () => {
+  const error = useRouteError();
+  console.log(error);
   return (
     <>
       <Header />

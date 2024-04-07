@@ -1,7 +1,9 @@
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Carrousel from "../components/Carrousel/Carrousel";
 import Footer from "../components/Footer/Footer";
 import Header from "../components/Header/Header";
+import Loader from "../components/Loader/Loader";
 import ScrollToTopButton from "../components/Top/Top";
 import { useFetch } from "../utils/useFetch";
 import NotFound from "./NotFound";
@@ -9,6 +11,15 @@ import NotFound from "./NotFound";
 const Housing = () => {
   const { fetchedData } = useFetch(`/data.json`);
   const { id } = useParams();
+
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 3000);
+    return () => clearTimeout(timer);
+  }, []);
 
   function nextSlide() {
     const slider = document.querySelector(".slider").offsetWidth;
@@ -32,29 +43,39 @@ const Housing = () => {
   const currentHousing =
     fetchedData && fetchedData.find((item) => item.id === id);
 
-  return (
-    <>
-      <Header />
-      <main>
-        <div className="slider">
-          <div className="slider__nav">
-            <button
-              onClick={previousSlide}
-              className="slider__nav__prev slider__nav__btn"
-              aria-label="previous slide"
-            >
-              <span className="fa-solid fa-chevron-left"></span>
-            </button>
-            <button
-              onClick={nextSlide}
-              className="slider__nav__next slider__nav__btn"
-              aria-label="next slide"
-            >
-              <span className="fa-solid fa-chevron-right"></span>
-            </button>
-          </div>
-          <div className="wrapper">
-            {currentHousing ? (
+  if (isLoading) {
+    return <Loader />;
+  }
+
+  if (!currentHousing) {
+    return (
+      <>
+        <NotFound />
+      </>
+    );
+  } else {
+    return (
+      <>
+        <Header />
+        <main>
+          <div className="slider">
+            <div className="slider__nav">
+              <button
+                onClick={previousSlide}
+                className="slider__nav__prev slider__nav__btn"
+                aria-label="previous slide"
+              >
+                <span className="fa-solid fa-chevron-left"></span>
+              </button>
+              <button
+                onClick={nextSlide}
+                className="slider__nav__next slider__nav__btn"
+                aria-label="next slide"
+              >
+                <span className="fa-solid fa-chevron-right"></span>
+              </button>
+            </div>
+            <div className="wrapper">
               <Carrousel
                 key={currentHousing.id}
                 id={currentHousing.id}
@@ -62,16 +83,14 @@ const Housing = () => {
                 title={currentHousing.title}
                 pictures={currentHousing.pictures}
               />
-            ) : (
-              <NotFound />
-            )}
+            </div>
           </div>
-        </div>
-        <ScrollToTopButton />
-      </main>
-      <Footer />
-    </>
-  );
+          <ScrollToTopButton />
+        </main>
+        <Footer />
+      </>
+    );
+  }
 };
 
 export default Housing;
