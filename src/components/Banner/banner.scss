@@ -40,6 +40,7 @@
 
     & h1 {
       position: relative;
+      text-align: center;
       z-index: 3;
       @include h1;
       -webkit-text-stroke-color: black;
@@ -52,13 +53,11 @@
       }
 
       @media (max-width: 768px) {
+        text-align: start;
         font-size: 1.5rem;
-        -webkit-text-stroke-color: none;
-        -webkit-text-stroke-width: 0;
 
         & span {
           display: flex;
-          flex-wrap: wrap;
         }
       }
     }
