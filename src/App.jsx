@@ -1,4 +1,4 @@
-import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import { HashRouter, Route, Routes } from "react-router-dom";
 import About from "./pages/About";
 import Home from "./pages/Home";
 import Housing from "./pages/Housing";
@@ -7,7 +7,7 @@ import "./styles/App.scss";
 
 const App = () => {
   return (
-    <Router>
+    <HashRouter>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
@@ -15,7 +15,7 @@ const App = () => {
         {/* Route pour les pages inexistantes */}
         <Route path="*" element={<NotFound />} />
       </Routes>
-    </Router>
+    </HashRouter>
   );
 };
 
