@@ -5,6 +5,15 @@
   align-items: center;
   flex-direction: column;
   gap: 40px;
+  transition: gap 0.8s ease;
+
+  @media (max-width: 1280px) {
+    gap: 30px;
+  }
+
+  @media (max-width: 768px) {
+    gap: 20px;
+  }
 
   .collapse {
     @include center_column_center;
@@ -12,6 +21,10 @@
     width: 100%;
     gap: 5px;
     height: auto;
+
+    @media (max-width: 768px) {
+      gap: 2px;
+    }
 
     .collapse_button {
       @include center_space_between;
@@ -25,6 +38,14 @@
       color: $white;
       background-color: $red;
       cursor: pointer;
+
+      @media (max-width: 1280px) {
+        font-size: 1.1rem;
+      }
+
+      @media (max-width: 768px) {
+        font-size: 1rem;
+      }
 
       .fa-chevron-up {
         transition: transform 0.5s ease;
@@ -43,6 +64,10 @@
       padding: 20px;
       border-radius: 10px;
       background-color: $dark;
+
+      @media (max-width: 768px) {
+        font-size: 0.8rem;
+      }
 
       &.active {
         animation: loadContent 800ms both;
