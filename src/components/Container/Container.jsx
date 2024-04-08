@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { useFetch } from "../../utils/useFetch";
 import Card from "../Card/Card";
 import Loader from "../Loader/Loader";
@@ -6,17 +7,18 @@ import "./container.scss";
 
 const Container = () => {
   const { fetchedData, isLoading, error } = useFetch("/data.json");
+  const navigate = useNavigate();
 
   useEffect(() => {
-    window.scrollTo(0, 0);
     sessionStorage.setItem("data", JSON.stringify(fetchedData));
+    window.scrollTo(0, 0);
   }, [fetchedData]);
   return (
     <section className="container">
       {isLoading ? (
         <Loader />
       ) : error ? (
-        <p>Error</p>
+        navigate("/*")
       ) : (
         fetchedData.map((data) => (
           <Card

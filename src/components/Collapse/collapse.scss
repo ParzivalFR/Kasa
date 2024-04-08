@@ -1,0 +1,94 @@
+@import "../../styles/index.scss";
+
+.container_collapse {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 40px;
+
+  .collapse {
+    @include center_column_center;
+    max-width: 1080px;
+    width: 100%;
+    gap: 5px;
+    height: auto;
+
+    .collapse_button {
+      @include center_space_between;
+      @include h2;
+      font-weight: 700;
+      width: 100%;
+      height: 100%;
+      padding: 15px;
+      border-radius: 10px;
+      border: none;
+      color: $white;
+      background-color: $red;
+      cursor: pointer;
+
+      .fa-chevron-up {
+        transition: transform 0.5s ease;
+
+        &.active {
+          transform: rotate(-180deg);
+        }
+      }
+    }
+
+    .collapse_content {
+      display: none;
+      max-width: 1080px;
+      width: 100%;
+      height: auto;
+      padding: 20px;
+      border-radius: 10px;
+      background-color: $dark;
+
+      &.active {
+        animation: loadContent 800ms both;
+        display: block;
+      }
+
+      &.close {
+        animation: closeContent 800ms both;
+      }
+    }
+  }
+}
+
+@keyframes loadContent {
+  0% {
+    transform: translateY(0px);
+    transform-origin: top;
+    opacity: 0;
+  }
+
+  30% {
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    transform-origin: top;
+    opacity: 1;
+  }
+}
+
+
+@keyframes closeContent {
+  0% {
+    transform: translateY(0px);
+    transform-origin: top;
+    opacity: 1;
+  }
+
+  70% {
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    transform-origin: top;
+    opacity: 0;
+  }
+}

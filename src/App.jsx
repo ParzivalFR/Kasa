@@ -1,37 +1,22 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import About from "./pages/About";
 import Home from "./pages/Home";
 import Housing from "./pages/Housing";
 import NotFound from "./pages/NotFound";
 import "./styles/App.scss";
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Home />,
-  },
-  {
-    path: "/about",
-    element: <About />,
-  },
-  {
-    path: "/housing",
-    element: <Housing />,
-    children: [
-      {
-        path: ":id",
-        element: <Housing />,
-      },
-    ],
-  },
-  {
-    path: "*",
-    element: <NotFound />,
-  },
-]);
-
 const App = () => {
-  return <RouterProvider router={router} />;
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/housing/:id" element={<Housing />} />
+        {/* Route pour les pages inexistantes */}
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </Router>
+  );
 };
 
 export default App;

@@ -1,15 +1,19 @@
+import PropTypes from "prop-types";
 import "./banner.scss";
 
-const Banner = () => {
+const BannerAbout = ({ imageUrl, title }) => {
   return (
     <div className="banner">
-      <div className="container_title">
-        <h1>
-          Chez vous, <span className="unline">partout et ailleurs</span>
-        </h1>
-      </div>
+      <div className="banner__overlay"></div>
+      <img src={imageUrl} alt="Banner" className="banner__image" />
+      <h1 className="banner__title">{title}</h1>
     </div>
   );
 };
 
-export default Banner;
+BannerAbout.propTypes = {
+  imageUrl: PropTypes.node.isRequired,
+  title: PropTypes.node,
+};
+
+export default BannerAbout;
