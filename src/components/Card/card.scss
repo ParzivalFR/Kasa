@@ -23,7 +23,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.329) 100%);
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.400) 100%);
   }
 
   & .card__img {
@@ -34,6 +34,7 @@
 
   & .card__title {
     @include h2;
+    font-weight: 700;
     position: absolute;
     z-index: 2;
     bottom: 20px;
