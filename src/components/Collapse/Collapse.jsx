@@ -5,7 +5,7 @@ const Collapse = ({ title, content, index, activeIndex, setActiveIndex }) => {
   const isOpen = index === activeIndex;
 
   const toggleCollapse = () => {
-    setActiveIndex(isOpen ? null : index);
+    setActiveIndex(isOpen ? 0 : index);
   };
 
   return (
@@ -25,7 +25,7 @@ Collapse.propTypes = {
   title: PropTypes.string.isRequired,
   content: PropTypes.node.isRequired,
   index: PropTypes.number.isRequired,
-  activeIndex: PropTypes.number,
+  activeIndex: PropTypes.number.isRequired,
   setActiveIndex: PropTypes.func.isRequired,
 };
 

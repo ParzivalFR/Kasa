@@ -1,5 +1,6 @@
 import { useNavigate, useParams } from "react-router-dom";
 import Carrousel from "../components/Carrousel/Carrousel";
+import Description from "../components/Description/Description";
 import Footer from "../components/Footer/Footer";
 import Header from "../components/Header/Header";
 import Loader from "../components/Loader/Loader";
@@ -10,9 +11,7 @@ const Housing = () => {
   const { fetchedData, isLoading, error } = useFetch(`/data.json`);
   const { id } = useParams();
   const navigate = useNavigate();
-  console.log(id);
 
-  // Vérifiez si fetchedData est null avant d'accéder à ses propriétés
   const currentHousing =
     fetchedData && fetchedData.find((item) => item.id === id);
 
@@ -33,6 +32,7 @@ const Housing = () => {
               title={currentHousing.title}
               pictures={currentHousing.pictures}
             />
+            <Description currentHousing={currentHousing} />
             <ScrollToTopButton />
           </main>
           <Footer />

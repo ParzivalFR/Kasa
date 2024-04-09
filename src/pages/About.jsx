@@ -6,7 +6,7 @@ import Footer from "../components/Footer/Footer";
 import Header from "../components/Header/Header";
 
 const About = () => {
-  const [activeIndex, setActiveIndex] = useState(null);
+  const [activeIndex, setActiveIndex] = useState(0);
   const dataAbout = [
     {
       title: "Fiabilité",
@@ -35,18 +35,18 @@ const About = () => {
       <Header />
       <main>
         <BannerAbout imageUrl={imageNeige} />
-        <section className="container_collapse">
+        <div className="container_collapse">
           {dataAbout.map((item, index) => (
             <Collapse
               key={`${item.title.replace(/[^\w\s]/gi, "").slice(0, 3)}${index}`}
               title={item.title}
               content={item.content}
-              index={index}
+              index={index + 1}
               activeIndex={activeIndex}
               setActiveIndex={setActiveIndex}
             />
           ))}
-        </section>
+        </div>
       </main>
       <Footer />
     </>

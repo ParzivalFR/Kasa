@@ -23,6 +23,7 @@ const Carrousel = ({ ...props }) => {
   }
 
   const { id } = useParams();
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
