@@ -79,4 +79,15 @@
       }
     }
   }
+
+  .number_item {
+    position: absolute;
+    bottom: 20px;
+    right: 50%;
+    transform: translateX(50%);
+    color: $white;
+    font-size: 20px;
+    font-weight: 700;
+    z-index: 100;
+  }
 }

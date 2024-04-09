@@ -30,28 +30,33 @@ const Carrousel = ({ ...props }) => {
 
   return (
     <div className="slider">
-      <div className="slider__nav">
-        <button
-          onClick={previousSlide}
-          className="slider__nav__prev slider__nav__btn"
-          aria-label="previous slide"
-        >
-          <span className="fa-solid fa-chevron-left"></span>
-        </button>
-        <button
-          onClick={nextSlide}
-          className="slider__nav__next slider__nav__btn"
-          aria-label="next slide"
-        >
-          <span className="fa-solid fa-chevron-right"></span>
-        </button>
-      </div>
+      {props.pictures.length > 1 && (
+        <div className="slider__nav">
+          <button
+            onClick={previousSlide}
+            className="slider__nav__prev slider__nav__btn"
+            aria-label="previous slide"
+          >
+            <span className="fa-solid fa-chevron-left"></span>
+          </button>
+          <button
+            onClick={nextSlide}
+            className="slider__nav__next slider__nav__btn"
+            aria-label="next slide"
+          >
+            <span className="fa-solid fa-chevron-right"></span>
+          </button>
+        </div>
+      )}
       <div className="wrapper">
         <div className="wrapper__item">
           {props.pictures.map((picture, index) => (
             <img key={index + id} src={picture} alt={`${props.title}`} />
           ))}
         </div>
+      </div>
+      <div className="number_item">
+        <span>1 / {props.pictures.length}</span>
       </div>
     </div>
   );
