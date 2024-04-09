@@ -1,15 +1,21 @@
 import PropTypes from "prop-types";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import "./carrousel.scss";
 
 const Carrousel = ({ ...props }) => {
+  const [currentSlide, setCurrentSlide] = useState(1);
+  const { id } = useParams();
+
   function nextSlide() {
     const slider = document.querySelector(".slider").offsetWidth;
     const wrapperItem = document.querySelector(".wrapper__item");
     wrapperItem.scrollLeft += slider;
     if (wrapperItem.scrollLeft >= wrapperItem.scrollWidth - slider) {
       wrapperItem.scrollLeft = 0;
+      setCurrentSlide(1);
+    } else {
+      setCurrentSlide(currentSlide + 1);
     }
   }
 
@@ -19,10 +25,11 @@ const Carrousel = ({ ...props }) => {
     wrapperItem.scrollLeft -= slider;
     if (wrapperItem.scrollLeft === 0) {
       wrapperItem.scrollLeft = wrapperItem.scrollWidth - slider;
+      setCurrentSlide(props.pictures.length);
+    } else {
+      setCurrentSlide(currentSlide - 1);
     }
   }
-
-  const { id } = useParams();
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -56,7 +63,9 @@ const Carrousel = ({ ...props }) => {
         </div>
       </div>
       <div className="number_item">
-        <span>1 / {props.pictures.length}</span>
+        <span>
+          {currentSlide} / {props.pictures.length}
+        </span>
       </div>
     </div>
   );
