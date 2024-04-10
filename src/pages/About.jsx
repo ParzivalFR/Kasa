@@ -4,7 +4,8 @@ import BannerAbout from "../components/Banner/Banner";
 import Collapse from "../components/Collapse/Collapse";
 
 const About = () => {
-  const [activeIndex, setActiveIndex] = useState(0);
+  document.title = "Kasa - À propos de nous";
+  const [isActive, setIsActive] = useState(0);
   const dataAbout = [
     {
       title: "Fiabilité",
@@ -31,19 +32,17 @@ const About = () => {
   return (
     <>
       <main>
-        <BannerAbout imageUrl={imageNeige} />
-        <div className="container_collapse">
-          {dataAbout.map((item, index) => (
-            <Collapse
-              key={`${item.title.replace(/[^\w\s]/gi, "").slice(0, 3)}${index}`}
-              title={item.title}
-              content={item.content}
-              index={index + 1}
-              activeIndex={activeIndex}
-              setActiveIndex={setActiveIndex}
-            />
-          ))}
-        </div>
+        <BannerAbout imageUrl={imageNeige} opacity={0.3} />
+        {dataAbout.map((item, index) => (
+          <Collapse
+            key={`${item.title.replace(/[^\w\s]/gi, "").slice(0, 3)}${index}`}
+            title={item.title}
+            content=<li>{item.content}</li>
+            index={index + 1}
+            isActive={isActive}
+            setIsActive={setIsActive}
+          />
+        ))}
       </main>
     </>
   );

@@ -72,8 +72,9 @@
         }
       }
 
-      p {
-        text-align: center;
+      .tag {
+        display: flex;
+        align-items: center;
         width: auto;
         height: 100%;
         background-color: $red;
@@ -174,10 +175,8 @@
     }
   }
 
-  .container_collapse {
+  .collapses {
     display: flex;
-    flex-direction: row;
-    align-items: flex-start;
     gap: 75px;
 
     @media (max-width: 1280px) {
@@ -186,7 +185,7 @@
 
     @media (max-width: 768px) {
       flex-direction: column;
-      gap: 20px;
+      gap: 30px;
     }
   }
 }

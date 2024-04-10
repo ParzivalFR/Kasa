@@ -12,12 +12,13 @@ const Housing = () => {
 
   const currentHousing =
     fetchedData && fetchedData.find((item) => item.id === id);
+  document.title = `Kasa - ${currentHousing && currentHousing.title}`;
 
   if (isLoading) {
     return <Loader />;
   } else {
     if (error || !currentHousing) {
-      return navigate("/*");
+      return navigate("/error");
     } else {
       return (
         <>

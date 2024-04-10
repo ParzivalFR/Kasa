@@ -2,118 +2,80 @@
 
 .container_collapse {
   display: flex;
-  align-items: center;
   flex-direction: column;
-  gap: 40px;
-  transition: gap 0.8s ease;
+  width: 100%;
+  max-width: 1024px;
+  margin: 0 auto;
 
-  @media (max-width: 1280px) {
-    gap: 30px;
-  }
-
-  @media (max-width: 768px) {
-    gap: 20px;
-  }
-
-  .collapse {
-    @include center_column_center;
-    max-width: 1080px;
+  .collapsible {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: $red;
+    color: $white;
+    cursor: pointer;
+    padding: 10px 20px 10px 15px;
     width: 100%;
-    gap: 5px;
-    height: auto;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 24px;
+    font-weight: 700;
+    border-radius: 10px;
 
-    @media (max-width: 768px) {
-      gap: 2px;
+    @media (max-width: 1280px) {
+      font-size: 20px;
     }
 
-    .collapse_button {
-      @include center_space_between;
-      @include h2;
-      font-weight: 700;
-      width: 100%;
-      height: 100%;
-      padding: 15px;
-      border-radius: 10px;
-      border: none;
-      color: $white;
-      background-color: $red;
-      cursor: pointer;
+    @media (max-width: 768px) {
+      font-size: 14px;
+      border-radius: 5px;
+    }
 
-      @media (max-width: 1280px) {
-        font-size: 1.1rem;
-      }
+    .fa-chevron-up {
+      transition: transform 0.5s ease;
+    }
 
-      @media (max-width: 768px) {
-        font-size: 1rem;
-      }
+    .fa-chevron-up.active {
+      transform: rotate(-180deg);
+    }
+  }
 
-      .fa-chevron-up {
-        transition: transform 0.5s ease;
+  .content {
+    position: relative;
+    z-index: 9;
+    max-height: 0;
+    margin: -8px 0 0 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+    background-color: $dark;
+    border-radius: 0 0 10px 10px;
 
-        &.active {
-          transform: rotate(-180deg);
+    &.active {
+      transition: max-height 2s ease;
+      max-height: 200px;
+    }
+
+    .content_collapse {
+      display: flex;
+      flex-direction: column;
+      padding: 20px;
+
+      li {
+        font-size: 18px;
+        font-weight: 500;
+        line-height: 1.2;
+
+        @media (max-width: 1280px) {
+          font-size: 16px;
+        }
+
+        @media (max-width: 768px) {
+          font-size: 14px;
         }
       }
     }
-
-    .collapse_content {
-      display: none;
-      max-width: 1080px;
-      width: 100%;
-      height: auto;
-      padding: 20px;
-      border-radius: 10px;
-      background-color: $dark;
-
-      @media (max-width: 768px) {
-        font-size: 0.8rem;
-      }
-
-      &.active {
-        animation: loadContent 800ms both;
-        display: block;
-      }
-
-      &.close {
-        animation: closeContent 800ms both;
-      }
-    }
-  }
-}
-
-@keyframes loadContent {
-  0% {
-    transform: translateY(0px);
-    transform-origin: top;
-    opacity: 0;
-  }
-
-  30% {
-    opacity: 0;
-  }
-
-  100% {
-    transform: translateY(0);
-    transform-origin: top;
-    opacity: 1;
-  }
-}
-
-
-@keyframes closeContent {
-  0% {
-    transform: translateY(0px);
-    transform-origin: top;
-    opacity: 1;
-  }
-
-  70% {
-    opacity: 0;
-  }
-
-  100% {
-    transform: translateY(0);
-    transform-origin: top;
-    opacity: 0;
   }
 }

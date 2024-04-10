@@ -4,6 +4,7 @@ import Container from "../components/Container/Container";
 import Top from "../components/Top/Top";
 
 const Home = () => {
+  document.title = "Kasa - Location d'appartement";
   return (
     <>
       <main>
@@ -14,6 +15,7 @@ const Home = () => {
               Chez vous, <span>partout et ailleurs</span>
             </>
           }
+          opacity={0.6}
         />
         <Container />
       </main>

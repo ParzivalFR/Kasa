@@ -4,8 +4,7 @@ import Collapse from "../Collapse/Collapse";
 import "./description.scss";
 
 const Description = ({ currentHousing }) => {
-  console.log(currentHousing);
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [isActive, setIsActive] = useState(false);
 
   return (
     <section className="description">
@@ -15,7 +14,9 @@ const Description = ({ currentHousing }) => {
           <p>{currentHousing.location}</p>
           <div className="tags">
             {currentHousing.tags.map((tag, index) => (
-              <p key={index}>{tag}</p>
+              <p key={index} className="tag">
+                {tag}
+              </p>
             ))}
           </div>
         </div>
@@ -53,35 +54,31 @@ const Description = ({ currentHousing }) => {
           )}
         </div>
       </div>
-      <div className="container_collapse">
+      <div className="collapses">
         <Collapse
           key={currentHousing.id + 1}
           title="Description"
-          content={currentHousing.description}
+          content={<li>{currentHousing.description}</li>}
           index={1}
-          activeIndex={activeIndex}
-          setActiveIndex={setActiveIndex}
+          isActive={isActive}
+          setIsActive={setIsActive}
         />
         <Collapse
           key={currentHousing.id + 2}
           title="Équipements"
-          content={
-            <ul>
-              {currentHousing.equipments.map((equipment, index) => (
-                <li key={index}>
-                  <i
-                    className="fa-solid fa-check"
-                    style={{ color: "#ff6060" }}
-                  ></i>
-                  {"  "}
-                  {equipment}
-                </li>
-              ))}
-            </ul>
-          }
+          content={currentHousing.equipments.map((equipment, index) => (
+            <li key={index}>
+              <span
+                className="fa-solid fa-check"
+                style={{ color: "#ff6060" }}
+              ></span>
+              {"  "}
+              {equipment}
+            </li>
+          ))}
           index={2}
-          activeIndex={activeIndex}
-          setActiveIndex={setActiveIndex}
+          isActive={isActive}
+          setIsActive={setIsActive}
         />
       </div>
     </section>
