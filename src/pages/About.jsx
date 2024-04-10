@@ -2,8 +2,6 @@ import { useState } from "react";
 import imageNeige from "../assets/images/banner_about.webp";
 import BannerAbout from "../components/Banner/Banner";
 import Collapse from "../components/Collapse/Collapse";
-import Footer from "../components/Footer/Footer";
-import Header from "../components/Header/Header";
 
 const About = () => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -32,7 +30,6 @@ const About = () => {
 
   return (
     <>
-      <Header />
       <main>
         <BannerAbout imageUrl={imageNeige} />
         <div className="container_collapse">
@@ -48,7 +45,6 @@ const About = () => {
           ))}
         </div>
       </main>
-      <Footer />
     </>
   );
 };

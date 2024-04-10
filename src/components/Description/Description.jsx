@@ -15,7 +15,7 @@ const Description = ({ currentHousing }) => {
           <p>{currentHousing.location}</p>
           <div className="tags">
             {currentHousing.tags.map((tag, index) => (
-              <button key={index}>{tag}</button>
+              <p key={index}>{tag}</p>
             ))}
           </div>
         </div>

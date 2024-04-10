@@ -1,8 +1,6 @@
 import { useNavigate, useParams } from "react-router-dom";
 import Carrousel from "../components/Carrousel/Carrousel";
 import Description from "../components/Description/Description";
-import Footer from "../components/Footer/Footer";
-import Header from "../components/Header/Header";
 import Loader from "../components/Loader/Loader";
 import ScrollToTopButton from "../components/Top/Top";
 import { useFetch } from "../utils/useFetch";
@@ -23,7 +21,6 @@ const Housing = () => {
     } else {
       return (
         <>
-          <Header />
           <main>
             <Carrousel
               key={currentHousing.id}
@@ -35,7 +32,6 @@ const Housing = () => {
             <Description currentHousing={currentHousing} />
             <ScrollToTopButton />
           </main>
-          <Footer />
         </>
       );
     }
