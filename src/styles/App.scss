@@ -10,7 +10,7 @@ body {
   overflow-x: hidden;
 
   #root {
-    @include center_column_center;
+    @include center_column;
     gap: 50px;
     min-width: 100%;
     min-height: 100vh;

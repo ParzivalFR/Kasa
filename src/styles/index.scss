@@ -59,3 +59,9 @@ $black: #000;
   justify-content: flex-end;
   align-items: center;
 }
+
+@mixin center_column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
