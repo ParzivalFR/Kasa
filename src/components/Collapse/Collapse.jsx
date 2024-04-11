@@ -1,9 +1,7 @@
 import PropTypes from "prop-types";
-import { useState } from "react";
 import "./collapse.scss";
 
-const Collapse = ({ title, content, index }) => {
-  const [isActive, setIsActive] = useState(false);
+const Collapse = ({ title, content, index, isActive, setIsActive }) => {
   const isOpen = index === isActive;
 
   const toggleActive = () => {
@@ -14,15 +12,15 @@ const Collapse = ({ title, content, index }) => {
     <>
       <div className="container_collapse">
         <button
-          className={`collapsible ${isActive ? "active" : ""}`}
+          className={`collapsible ${isOpen ? "active" : ""}`}
           onClick={toggleActive}
         >
           {title}
           <span
-            className={`fa-solid fa-chevron-up ${isActive ? "active" : ""}`}
+            className={`fa-solid fa-chevron-up ${isOpen ? "active" : ""}`}
           ></span>
         </button>
-        <div className={`content ${isActive ? "active" : ""}`}>
+        <div className={`content ${isOpen ? "active" : ""}`}>
           <ul className={`content_collapse ${isOpen ? "active" : ""}`}>
             {content}
           </ul>
@@ -35,7 +33,9 @@ const Collapse = ({ title, content, index }) => {
 Collapse.propTypes = {
   title: PropTypes.string.isRequired,
   content: PropTypes.node.isRequired,
-  index: PropTypes.number.isRequired,
+  index: PropTypes.node.isRequired,
+  isActive: PropTypes.node.isRequired,
+  setIsActive: PropTypes.func.isRequired,
 };
 
 export default Collapse;

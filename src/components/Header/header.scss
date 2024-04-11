@@ -11,6 +11,7 @@ header {
   @media (max-width: 1280px) {
     height: 55px;
     margin-top: 30px;
+    padding: 0 20px;
   }
 
   @media (max-width: 768px) {
@@ -26,7 +27,7 @@ header {
     background-color: $white;
 
     & .img_link {
-      width: 100%;
+      width: auto;
       height: 100%;
     }
 

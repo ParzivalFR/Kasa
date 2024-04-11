@@ -32,16 +32,22 @@ body {
       margin: 0 auto;
       width: 100%;
       max-width: 1240px;
-      min-height: 100vh;
       transition: gap 0.8s ease;
 
       @media (max-width: 1280px) {
         gap: 35px;
+        padding: 0 20px;
       }
 
       @media (max-width: 768px) {
         padding: 0 20px 0 20px;
       }
+    }
+
+    .section_about {
+      @include center_column_center;
+      margin-top: 10px;
+      gap: 30px;
     }
   }
 }

@@ -33,16 +33,18 @@ const About = () => {
     <>
       <main>
         <BannerAbout imageUrl={imageNeige} opacity={0.3} />
-        {dataAbout.map((item, index) => (
-          <Collapse
-            key={`${item.title.replace(/[^\w\s]/gi, "").slice(0, 3)}${index}`}
-            title={item.title}
-            content=<li>{item.content}</li>
-            index={index + 1}
-            isActive={isActive}
-            setIsActive={setIsActive}
-          />
-        ))}
+        <section className="section_about">
+          {dataAbout.map((item, index) => (
+            <Collapse
+              key={`${item.title.replace(/[^\w\s]/gi, "").slice(0, 3)}${index}`}
+              title={item.title}
+              content=<li>{item.content}</li>
+              index={index + 1}
+              isActive={isActive}
+              setIsActive={setIsActive}
+            />
+          ))}
+        </section>
       </main>
     </>
   );
