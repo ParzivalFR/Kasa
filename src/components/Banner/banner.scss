@@ -16,6 +16,7 @@
 
   @media (max-width: 768px) {
     height: 110px;
+    border-radius: 10px;
   }
 
   &__overlay {
@@ -27,6 +28,10 @@
     height: 100%;
     background-color: rgba(0, 0, 0, 0.4);
     border-radius: 25px;
+
+    @media (max-width: 768px) {
+      border-radius: 10px;
+    }
   }
 
   &__image {
@@ -36,6 +41,10 @@
     height: 100%;
     object-fit: cover;
     border-radius: 25px;
+
+    @media (max-width: 768px) {
+      border-radius: 10px;
+    }
   }
 
   &__title {

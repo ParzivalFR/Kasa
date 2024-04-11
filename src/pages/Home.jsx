@@ -5,6 +5,7 @@ import Top from "../components/Top/Top";
 
 const Home = () => {
   document.title = "Kasa - Location d'appartement";
+
   return (
     <>
       <main>
