@@ -4,7 +4,6 @@
   @include Reset;
 }
 
-
 body {
   font-family: "Montserrat", sans-serif;
   overflow-x: hidden;
@@ -26,12 +25,12 @@ body {
     }
 
     & main {
-      display: flex;
-      flex-direction: column;
+      @include center_column;
       gap: 50px;
       margin: 0 auto;
       width: 100%;
       max-width: 1240px;
+      min-height: device-height;
       transition: gap 0.8s ease;
 
       @media (max-width: 1280px) {
