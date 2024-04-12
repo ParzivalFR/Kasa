@@ -38,7 +38,7 @@ const About = () => {
             <Collapse
               key={`${item.title.replace(/[^\w\s]/gi, "").slice(0, 3)}${index}`}
               title={item.title}
-              content=<li>{item.content}</li>
+              content=<p>{item.content}</p>
               index={index + 1}
               isActive={isActive}
               setIsActive={setIsActive}

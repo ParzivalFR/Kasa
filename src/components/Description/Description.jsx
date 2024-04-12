@@ -58,7 +58,7 @@ const Description = ({ currentHousing }) => {
         <Collapse
           key={currentHousing.id + 1}
           title="Description"
-          content={<li>{currentHousing.description}</li>}
+          content={<p>{currentHousing.description}</p>}
           index={1}
           isActive={isActive}
           setIsActive={setIsActive}
@@ -66,16 +66,20 @@ const Description = ({ currentHousing }) => {
         <Collapse
           key={currentHousing.id + 2}
           title="Équipements"
-          content={currentHousing.equipments.map((equipment, index) => (
-            <li key={index}>
-              <span
-                className="fa-solid fa-check"
-                style={{ color: "#ff6060" }}
-              ></span>
-              {"  "}
-              {equipment}
-            </li>
-          ))}
+          content={
+            <ul>
+              {currentHousing.equipments.map((equipment, index) => (
+                <li key={index}>
+                  <span
+                    className="fa-solid fa-check"
+                    style={{ color: "#ff6060" }}
+                  ></span>
+                  {"  "}
+                  {equipment}
+                </li>
+              ))}
+            </ul>
+          }
           index={2}
           isActive={isActive}
           setIsActive={setIsActive}

@@ -3,7 +3,7 @@ import "./collapse.scss";
 
 const Collapse = ({ title, content, index, isActive, setIsActive }) => {
   const isOpen = index === isActive;
-
+  console.log(content.description);
   const toggleActive = () => {
     setIsActive(isOpen ? 0 : index);
   };
@@ -21,9 +21,9 @@ const Collapse = ({ title, content, index, isActive, setIsActive }) => {
           ></span>
         </button>
         <div className={`content ${isOpen ? "active" : ""}`}>
-          <ul className={`content_collapse ${isOpen ? "active" : ""}`}>
+          <div className={`content_collapse ${isOpen ? "active" : ""}`}>
             {content}
-          </ul>
+          </div>
         </div>
       </div>
     </>
