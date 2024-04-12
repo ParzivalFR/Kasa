@@ -37,17 +37,16 @@ const Description = ({ currentHousing }) => {
               {[...Array(5)].map((star, i) => {
                 const ratingValue = i + 1;
                 return (
-                  <label key={i}>
-                    <i
-                      className="fas fa-star"
-                      style={{
-                        color:
-                          ratingValue <= currentHousing.rating
-                            ? "#ff6060"
-                            : "#e3e3e3",
-                      }}
-                    ></i>
-                  </label>
+                  <span
+                    key={i}
+                    className="fas fa-star"
+                    style={{
+                      color:
+                        ratingValue <= currentHousing.rating
+                          ? "#ff6060"
+                          : "#e3e3e3",
+                    }}
+                  ></span>
                 );
               })}
             </div>

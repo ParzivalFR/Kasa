@@ -59,7 +59,7 @@ const Carrousel = ({ ...props }) => {
               <img
                 key={index + id}
                 src={picture}
-                alt={`${props.title}`}
+                alt={`Photos de la location : ${props.title} en détail`}
                 style={{ transform: `translateX(-${currentSlide * 100}%)` }}
               />
             ))}
