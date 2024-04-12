@@ -17,6 +17,7 @@ const Home = () => {
             </>
           }
           opacity={0.6}
+          isVisible={true}
         />
         <Container />
       </main>

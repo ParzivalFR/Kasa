@@ -1,6 +1,6 @@
 import { useState } from "react";
 import imageNeige from "../assets/images/banner_about.webp";
-import BannerAbout from "../components/Banner/Banner";
+import Banner from "../components/Banner/Banner";
 import Collapse from "../components/Collapse/Collapse";
 
 const About = () => {
@@ -32,7 +32,12 @@ const About = () => {
   return (
     <>
       <main>
-        <BannerAbout imageUrl={imageNeige} opacity={0.3} />
+        <Banner
+          imageUrl={imageNeige}
+          opacity={0.3}
+          title="none"
+          isVisible={false}
+        />
         <section className="section_about">
           {dataAbout.map((item, index) => (
             <Collapse
