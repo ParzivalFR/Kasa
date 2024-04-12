@@ -33,6 +33,7 @@ const Carrousel = ({ ...props }) => {
                 onClick={previousSlide}
                 className="slider__nav__prev slider__nav__btn"
                 aria-label="previous slide"
+                value="previousSlide"
               >
                 <span className="fa-solid fa-chevron-left"></span>
               </button>
@@ -40,6 +41,7 @@ const Carrousel = ({ ...props }) => {
                 onClick={nextSlide}
                 className="slider__nav__next slider__nav__btn"
                 aria-label="next slide"
+                value="nextSlide"
               >
                 <span className="fa-solid fa-chevron-right"></span>
               </button>

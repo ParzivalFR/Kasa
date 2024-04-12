@@ -18,6 +18,8 @@ const ScrollToTopButton = () => {
   return (
     <button
       className={`scroll-to-top ${clicked ? "clicked" : ""}`}
+      aria-label="Scroll to top"
+      value="Scroll to top"
       onClick={scrollToTop}
     >
       <i className="fa-solid fa-arrow-up"></i>

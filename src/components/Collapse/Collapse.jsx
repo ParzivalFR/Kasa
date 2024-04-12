@@ -12,6 +12,7 @@ const Collapse = ({ title, content, index, isActive, setIsActive }) => {
       <div className="container_collapse">
         <button
           className={`collapsible ${isOpen ? "active" : ""}`}
+          value="Collapse button"
           onClick={toggleActive}
         >
           {title}

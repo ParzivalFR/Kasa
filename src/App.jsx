@@ -1,4 +1,4 @@
-import { HashRouter, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
 import About from "./pages/About";
@@ -9,17 +9,15 @@ import "./styles/App.scss";
 
 const App = () => {
   return (
-    <HashRouter>
+    <Routes>
       <Header />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/housing/:id" element={<Housing />} />
-        {/* Route pour les pages inexistantes */}
-        <Route path="*" element={<NotFound />} />
-      </Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/about" element={<About />} />
+      <Route path="/housing/:id" element={<Housing />} />
+      {/* Route pour les pages inexistantes */}
+      <Route path="*" element={<NotFound />} />
       <Footer />
-    </HashRouter>
+    </Routes>
   );
 };
 
