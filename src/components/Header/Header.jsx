@@ -11,12 +11,18 @@ const Header = () => {
         </NavLink>
         <ul>
           <li>
-            <NavLink exact to="/" activeClassName="active">
+            <NavLink
+              to="/"
+              className={({ isActive }) => (isActive ? "active" : undefined)}
+            >
               Accueil
             </NavLink>
           </li>
           <li>
-            <NavLink to="/about" activeClassName="active">
+            <NavLink
+              to="/about"
+              className={({ isActive }) => (isActive ? "active" : undefined)}
+            >
               A propos
             </NavLink>
           </li>

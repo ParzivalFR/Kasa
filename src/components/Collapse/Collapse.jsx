@@ -3,7 +3,6 @@ import "./collapse.scss";
 
 const Collapse = ({ title, content, index, isActive, setIsActive }) => {
   const isOpen = index === isActive;
-  console.log(content.description);
   const toggleActive = () => {
     setIsActive(isOpen ? 0 : index);
   };
