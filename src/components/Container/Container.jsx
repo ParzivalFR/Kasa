@@ -43,7 +43,12 @@ const Container = () => {
             )}
             {fetchedData.length > numCardsToShow && ( // Affiche le bouton seulement s'il y a plus de cartes à montrer
               <div className="container_button">
-                <button onClick={showMoreCards}>Montrer plus</button>
+                <button
+                  value="Afficher plus de contenu"
+                  onClick={showMoreCards}
+                >
+                  Afficher plus
+                </button>
               </div>
             )}
           </>

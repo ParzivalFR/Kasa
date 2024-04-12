@@ -7,7 +7,11 @@ const Card = ({ ...props }) => {
     <figure className="container_card">
       {props ? (
         <Link to={`/housing/${props.id}`} className="card">
-          <img src={props.cover} alt={props.title} className="card__img" />
+          <img
+            src={props.cover}
+            alt={`Photo de la location : ${props.title}`}
+            className="card__img"
+          />
           <figcaption className="card__title">{props.title}</figcaption>
         </Link>
       ) : (
