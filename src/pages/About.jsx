@@ -1,11 +1,11 @@
-import { useState } from "react";
 import imageNeige from "../assets/images/banner_about.webp";
 import Banner from "../components/Banner/Banner";
 import Collapse from "../components/Collapse/Collapse";
+import { useCollapse } from "../utils/useCollapse";
 
 const About = () => {
+  const { isActive, setIsActive } = useCollapse();
   document.title = "Kasa - À propos de nous";
-  const [isActive, setIsActive] = useState(0);
   const dataAbout = [
     {
       title: "Fiabilité",

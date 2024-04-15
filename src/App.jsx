@@ -1,4 +1,4 @@
-import { HashRouter, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
 import About from "./pages/About";
@@ -6,20 +6,20 @@ import Home from "./pages/Home";
 import Housing from "./pages/Housing";
 import NotFound from "./pages/NotFound";
 import "./styles/App.scss";
+import { CollapseProvider } from "./utils/useCollapse";
 
 const App = () => {
   return (
-    <HashRouter>
+    <CollapseProvider>
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
         <Route path="/housing/:id" element={<Housing />} />
-        {/* Route pour les pages inexistantes */}
+        <Route path="/about" element={<About />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
-    </HashRouter>
+    </CollapseProvider>
   );
 };
 

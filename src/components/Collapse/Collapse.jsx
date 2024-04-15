@@ -1,7 +1,9 @@
 import PropTypes from "prop-types";
+import { useCollapse } from "../../utils/useCollapse";
 import "./collapse.scss";
 
-const Collapse = ({ title, content, index, isActive, setIsActive }) => {
+const Collapse = ({ title, content, index }) => {
+  const { isActive, setIsActive } = useCollapse();
   const isOpen = index === isActive;
   const toggleActive = () => {
     setIsActive(isOpen ? 0 : index);

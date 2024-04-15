@@ -1,11 +1,11 @@
 import PropTypes from "prop-types";
-import { useState } from "react";
+import { useCollapse } from "../../utils/useCollapse";
 import Collapse from "../Collapse/Collapse";
+import Loader from "../Loader/Loader";
 import "./description.scss";
 
 const Description = ({ currentHousing }) => {
-  const [isActive, setIsActive] = useState(false);
-
+  const { isActive, setIsActive } = useCollapse();
   return (
     <section className="description">
       <div className="top">
@@ -57,7 +57,13 @@ const Description = ({ currentHousing }) => {
         <Collapse
           key={currentHousing.id + 1}
           title="Description"
-          content={<p>{currentHousing.description}</p>}
+          content={
+            currentHousing.description ? (
+              <p>{currentHousing.description}</p>
+            ) : (
+              <Loader />
+            )
+          }
           index={1}
           isActive={isActive}
           setIsActive={setIsActive}
@@ -67,16 +73,20 @@ const Description = ({ currentHousing }) => {
           title="Équipements"
           content={
             <ul>
-              {currentHousing.equipments.map((equipment, index) => (
-                <li key={index}>
-                  <span
-                    className="fa-solid fa-check"
-                    style={{ color: "#ff6060" }}
-                  ></span>
-                  {"  "}
-                  {equipment}
-                </li>
-              ))}
+              {currentHousing.equipments ? (
+                currentHousing.equipments.map((equipment, index) => (
+                  <li key={index}>
+                    <span
+                      className="fa-solid fa-check"
+                      style={{ color: "#ff6060" }}
+                    ></span>
+                    {"  "}
+                    {equipment}
+                  </li>
+                ))
+              ) : (
+                <Loader />
+              )}
             </ul>
           }
           index={2}

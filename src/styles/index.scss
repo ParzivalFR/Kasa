@@ -24,6 +24,10 @@ $black: #000;
   scroll-behavior: smooth;
 }
 
+@mixin break {
+  display: flex;
+}
+
 @mixin h1 {
   font-size: 3rem;
   font-weight: 700;
