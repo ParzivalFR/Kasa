@@ -1,6 +1,6 @@
 import bannerHome from "../assets/images/banner.webp";
 import BannerAbout from "../components/Banner/Banner";
-import Container from "../components/Container/Container";
+import Cards from "../components/Cards/Cards";
 import Top from "../components/Top/Top";
 
 const Home = () => {
@@ -19,7 +19,7 @@ const Home = () => {
           opacity={0.6}
           isVisible={true}
         />
-        <Container />
+        <Cards />
       </main>
       <Top />
     </>

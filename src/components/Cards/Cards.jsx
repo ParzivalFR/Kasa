@@ -1,11 +1,10 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useFetch } from "../../utils/useFetch";
-import Card from "../Card/Card";
 import Loader from "../Loader/Loader";
-import "./container.scss";
+import "./cards.scss";
 
-const Container = () => {
+const Card = () => {
   const { fetchedData, isLoading, error } = useFetch("/data.json");
   const navigate = useNavigate();
   const [numCardsToShow, setNumCardsToShow] = useState(6); // Nouvel état
@@ -15,9 +14,8 @@ const Container = () => {
   };
 
   useEffect(() => {
-    sessionStorage.setItem("data", JSON.stringify(fetchedData));
     window.scrollTo(0, 0);
-  }, [fetchedData]);
+  }, []);
 
   return (
     <>
@@ -28,20 +26,25 @@ const Container = () => {
           navigate("/*")
         ) : (
           <>
-            {fetchedData.slice(0, numCardsToShow).map(
-              (
-                data // Affiche seulement les cartes jusqu'à numCardsToShow
-              ) => (
-                <Card
-                  key={data.id}
-                  id={data.id}
-                  cover={data.cover}
-                  title={data.title}
-                  loader={<Loader />}
-                />
-              )
-            )}
-            {fetchedData.length > numCardsToShow && ( // Affiche le bouton seulement s'il y a plus de cartes à montrer
+            {fetchedData.slice(0, numCardsToShow).map((data) => (
+              <figure key={data.id} className="container_card">
+                {data ? (
+                  <Link to={`/housing/${data.id}`} className="card">
+                    <img
+                      src={data.cover}
+                      alt={`Photo de la location : ${data.title}`}
+                      className="card__img"
+                    />
+                    <figcaption className="card__title">
+                      {data.title}
+                    </figcaption>
+                  </Link>
+                ) : (
+                  Loader
+                )}
+              </figure>
+            ))}
+            {fetchedData.length > numCardsToShow && (
               <div className="container_button">
                 <button
                   value="Afficher plus de contenu"
@@ -58,4 +61,4 @@ const Container = () => {
   );
 };
 
-export default Container;
+export default Card;
