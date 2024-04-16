@@ -64,7 +64,7 @@ const Description = ({ currentHousing }) => {
               <Loader />
             )
           }
-          index={1}
+          index={currentHousing.id}
           isActive={isActive}
           setIsActive={setIsActive}
         />
@@ -89,7 +89,7 @@ const Description = ({ currentHousing }) => {
               )}
             </ul>
           }
-          index={2}
+          index={currentHousing.id}
           isActive={isActive}
           setIsActive={setIsActive}
         />

@@ -44,7 +44,7 @@ const About = () => {
               key={`${item.title.replace(/[^\w\s]/gi, "").slice(0, 3)}${index}`}
               title={item.title}
               content=<p>{item.content}</p>
-              index={index + 1}
+              index={item.title}
               isActive={isActive}
               setIsActive={setIsActive}
             />
