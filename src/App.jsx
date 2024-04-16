@@ -16,7 +16,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
-          <Route path="/housing/:id" element={<Housing />} />
+          <Route path="/housing/:housingId" element={<Housing />} />
           {/* Route pour les pages inexistantes */}
           <Route path="*" element={<NotFound />} />
         </Routes>

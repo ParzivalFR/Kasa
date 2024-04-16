@@ -9,10 +9,10 @@ const ScrollToTopButton = () => {
       top: 0,
       behavior: "smooth",
     });
-    setClicked(true); // Définir clicked à true lors du clic
+    setClicked(true);
     setTimeout(() => {
-      setClicked(false); // Réinitialiser clicked après un court délai
-    }, 1000); // Ajustez le délai
+      setClicked(false);
+    }, 1000);
   };
 
   return (

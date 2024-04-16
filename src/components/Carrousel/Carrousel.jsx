@@ -4,8 +4,9 @@ import { useParams } from "react-router-dom";
 import "./carrousel.scss";
 
 const Carrousel = ({ ...props }) => {
+  // ...props = { title, pictures, cover, id }
   const [currentSlide, setCurrentSlide] = useState(0);
-  const { id } = useParams();
+  const { housingId } = useParams();
 
   function nextSlide() {
     setCurrentSlide(
@@ -57,7 +58,7 @@ const Carrousel = ({ ...props }) => {
           <div className="wrapper__item">
             {props.pictures.map((picture, index) => (
               <img
-                key={index + id}
+                key={index + housingId}
                 src={picture}
                 alt={`Photos de la location : ${props.title} en détail`}
                 style={{ transform: `translateX(-${currentSlide * 100}%)` }}

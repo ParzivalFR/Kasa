@@ -7,11 +7,11 @@ import { useFetch } from "../utils/useFetch";
 
 const Housing = () => {
   const { fetchedData, isLoading, error } = useFetch(`/data.json`);
-  const { id } = useParams();
+  const { housingId } = useParams();
   const navigate = useNavigate();
 
   const currentHousing =
-    fetchedData && fetchedData.find((item) => item.id === id);
+    fetchedData && fetchedData.find((item) => item.id === housingId);
   document.title = `Kasa - ${currentHousing && currentHousing.title}`;
 
   if (isLoading) {
