@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { HashRouter, Route, Routes } from "react-router-dom";
 import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
 import About from "./pages/About";
@@ -10,7 +10,7 @@ import { CollapseProvider } from "./utils/useCollapse";
 
 const App = () => {
   return (
-    <>
+    <HashRouter>
       <Header />
       <CollapseProvider>
         <Routes>
@@ -22,7 +22,7 @@ const App = () => {
         </Routes>
       </CollapseProvider>
       <Footer />
-    </>
+    </HashRouter>
   );
 };
 
